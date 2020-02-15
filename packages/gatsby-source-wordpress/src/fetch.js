@@ -274,8 +274,13 @@ async function fetchData({
     console.time(`Fetching the ${type} took`)
   }
 
+  let restRoute = url;
+  if (url.includes('/wp-json/')) {
+    restRoute = url.replace('/wp-json', '/?rest_route=');
+  }
+
   let routeResponse = await getPages({
-    url,
+    url: restRoute,
     _perPage,
     _auth,
     _cookies,
@@ -394,7 +399,7 @@ async function getPages(
     const getOptions = page => {
       let o = {
         method: `get`,
-        url: `${url}?${querystring.stringify({
+        url: `${url.includes('?rest_route=') ? `${url}&` : `${url}?`}${querystring.stringify({
           per_page: _perPage,
           page: page,
         })}`,
