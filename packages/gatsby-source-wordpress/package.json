@@ -1,12 +1,31 @@
 {
-  "name": "gatsby-source-wordpress",
-  "description": "Gatsby source plugin for building websites using the WordPress CMS as a data source.",
+  "name": "@geocomponents/gatsby-source-wordpress",
   "version": "3.1.62",
-  "author": "Sebastien Fichot <fichot.sebastien@gmail.com>",
+  "description": "Gatsby source plugin for building websites using the WordPress CMS as a data source.",
+  "keywords": [
+    "gatsby",
+    "gatsby-plugin",
+    "gatsby-source-plugin"
+  ],
+  "homepage": "https://github.com/magicink/gatsby/tree/master/packages/gatsby-source-wordpress#readme",
   "bugs": {
-    "url": "https://github.com/gatsbyjs/gatsby/issues"
+    "url": "https://github.com/magicink/gatsby/issues"
   },
-  "bundledDependencies": [],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/magicink/gatsby.git",
+    "directory": "packages/gatsby-source-wordpress"
+  },
+  "license": "MIT",
+  "author": "Sebastien Fichot <fichot.sebastien@gmail.com>",
+  "scripts": {
+    "build": "babel src --out-dir . --ignore **/__tests__",
+    "npm:publish": "npm publish --registry https://npm.groundspeak.biz:4873",
+    "npm:login": "npm login --registry https://npm.groundspeak.biz:4873",
+    "patch": "npm version patch --no-git-tag-version",
+    "prepare": "cross-env NODE_ENV=production npm run build",
+    "watch": "babel -w src --out-dir . --ignore **/__tests__"
+  },
   "dependencies": {
     "@babel/runtime": "^7.7.6",
     "axios": "^0.19.0",
@@ -20,34 +39,18 @@
     "minimatch": "^3.0.4",
     "qs": "^6.9.1"
   },
-  "deprecated": false,
   "devDependencies": {
     "@babel/cli": "^7.7.5",
     "@babel/core": "^7.7.5",
     "babel-preset-gatsby-package": "^0.2.16",
     "cross-env": "^5.2.1"
   },
-  "homepage": "https://github.com/gatsbyjs/gatsby/tree/master/packages/gatsby-source-wordpress#readme",
-  "keywords": [
-    "gatsby",
-    "gatsby-plugin",
-    "gatsby-source-plugin"
-  ],
-  "license": "MIT",
   "peerDependencies": {
     "gatsby": "^2.0.15"
   },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/gatsbyjs/gatsby.git",
-    "directory": "packages/gatsby-source-wordpress"
-  },
-  "scripts": {
-    "build": "babel src --out-dir . --ignore **/__tests__",
-    "prepare": "cross-env NODE_ENV=production npm run build",
-    "watch": "babel -w src --out-dir . --ignore **/__tests__"
-  },
+  "bundledDependencies": [],
   "engines": {
     "node": ">=8.0.0"
-  }
+  },
+  "deprecated": false
 }
